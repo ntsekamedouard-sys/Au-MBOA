@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AU MBOA🇨🇲.css">
+    <title>AU MBOA🇨🇲</title>
+</head>
+<body>
+    <header class="hero" id="accueil">
+        <!--NAVBAR-->
+        <nav class="navbar">
+            <div class="logo"><img src="image/ChatGPT Image 1 mars 2026, 22_07_41.png" alt="Saveurs du MBOA🇨🇲" width="15%" height="35%" style="border-radius: 20px; ;"></div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="commande.html">Commander</a></li>
+                <li><a href="livraison.html">Livraison</a></li>
+                <li><a href="#reservation">Réservation</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="commande.html"><img src="image/icône/panier.png" alt="" width="25" height="25"></a></li>
+                <li><a href="LOGIN/connexion.html"><img src="image/icône/profil.png" alt="" width="25" height="25"></a></li>
+            </ul>
+        </nav>
+        <!--HERO CONTENT-->
+        <div class="hero-content">
+            <h1>
+                L'Authenticité Camerounaise <br>
+                <span>au Coeur de Douala</span>
+            </h1>
+            <p>
+                Décrouvrez les saveurs traditionnelles du Cameroun dans un cadre élégant et chaleureux
+            </p>
+            <div class="hero-buttons">
+                <a href="commande.html" class="btn btn-primary"> Commander maintenant</a>
+                <a href="#menu" class="btn btn-outline">Voir le menu</a>
+            </div>
+        </div>
+        <!--Scroll Icon-->
+        <div class="scroll-down">0</div>
+    </header>
+
+    <!--NOTRE HISTOIRE-->
+    <section class="about">
+        <div class="about-container">
+            <!--TEXTE-->
+            <div class="about-text">
+                <h2>Notre Histoire</h2>
+                <p>Saveurs du MBOA🇨🇲 est né de la passion de préserver et célébrer l'héritage culinaire camerounais. Situé au coeur de Bonamoussadi, notre restaurant propose une expérience gastronomique authentique qui honore les traditions tout en embrassant l'élégance moderne.</p>
+                <p>Chaque plat est préparé avec des ingrédients frais et locaux, selon des recettes transmises de génération en génération. Nous sommes fiers de partager la richesse de notre culture à travers une cuisne qui raconte l'histoire de notre peuple.</p>
+                <a href="#" class="btn-about"> En savoir plus</a>
+            </div>
+            <!--IMAGE-->
+            <div class="about-image">
+                <img src="image/img2.jpg" alt="Cuisine africaine">
+                <div class="badge">
+                    <h3>15+</h3>
+                    <span>Années d'Excellence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--NOS SPÉCIALITÉS-->
+    <section class="specialities">
+        <div class="section-title">
+            <h2>Nos Spécialités</h2>
+            <p>Découvrez nos plats signatures, préparés avec Amour et Authenticité</p>
+        </div>
+        <div class="cards-container">
+            <!--CARTE 1-->
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/img3.jpg" alt="Ndolé">
+                    <span class="price">4.500 FCFA</span>
+                </div>
+                <div class="card-content">
+                    <h3>Ndolé Royale</h3>
+                    <p>Plats national camerounais à base de feuilles de Ndolé, d'archide. </p>
+                    <div class="add-cart"><button><img src="image/icône/panier.png" alt="" width="25" height="25">Ajouter au panier</button></div>
+                </div>
+            </div>
+            <!--CARTE 2-->
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/img4.jpg" alt="Okok salé">
+                    <span class="price">3.000 FCFA</span>
+                </div>
+                <div class="card-content">
+                    <h3>Okok salé</h3>
+                    <p>Feuilles de legumes finement ccoupées avec de l'arachide, recette emblématique</p>
+                    <div class="add-cart"><button><img src="image/icône/panier.png" alt="" width="25" height="25">Ajouter au panier</button></div>
+                </div>
+            </div>
+            <!--CARTE 3-->
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/img5.jpg" alt="Mets de pistache">
+                    <span class="price">4.000 FCFA</span>
+                </div>
+                <div class="card-content">
+                    <h3>Mets de pistache</h3>
+                    <p>Specialités du Littoral, pistaches moulus et cuit à la vapeur.</p>
+                    <div class="add-cart"><button><img src="image/icône/panier.png" alt="" width="25" height="25">Ajouter au panier</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--MENU COMPLET-->
+    <section class="menu-complet" id="menu">
+        <div class="menu-title">
+            <h2>Notre Menu Complet</h2>
+            <p>Explorez notre sélection de plats traditionnels, grillades et boissons locales</p>
+        </div>
+        <!--BOUTONS FILTRE-->
+        <div class="menu-filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="trad">Plats traditionnels</button>
+            <button class="filter-btn" data-filter="grill">Grillades</button>
+            <button class="filter-btn" data-filter="boisson">Boissons</button>
+        </div>
+        <!--CARTES-->
+        <div class="menu-cards">
+            <!--CARTE 1-->
+            <div class="mcard" data-category="trad">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter </button></div>
+                </div>
+            </div>
+            <!--CARTE 2-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 3-->
+            <div class="mcard">
+                <div class="mcard-image" data-category="trad">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+        
+    </section>
+    <!--DEUXIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 4-->
+            <div class="mcard" data-category="trad">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 5-->
+            <div class="mcard">
+                <div class="mcard-image" data-category="trad">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 6-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+    <!--TROISIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 7-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 8-->
+            <div class="mcard">
+                <div class="mcard-image" data-category="trad">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 9-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+    <!--QUATRIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 10-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 11-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 12-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+    <!--CINQUIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 13-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 14-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 15-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+    <!--SIXIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 16-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 17-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 18-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+    <!--SEPTIEME RANGÉE DE CARTES-->
+    <section class="menu-complet2">
+        <div class="menu-cards">
+            <!--CARTE 19-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img6.jpg" alt="Bongo Chobi ">
+                    <span class="mprice">3.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Bongo Chobi</h3>
+                    <p>Soupe noire à base d'épices, typique du Littoral</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 20-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img7.jpg" alt="Beignet haricot">
+                    <span class="mprice">1.500 FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>BHB</h3>
+                    <p>Bol de haricots sautés accompagnés de beignets de farine soigneusement dorés</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+                </div>
+            </div>
+            <!--CARTE 21-->
+            <div class="mcard">
+                <div class="mcard-image">
+                    <img src="image/img8.jpg" alt="Water Fufu Eru">
+                    <span class="mprice">2.500FCFA</span>
+                </div>
+                <div class="menu-container">
+                    <h3>Eru</h3>
+                    <p>Savoureux repas originaire de Nord-Ouest</p>
+                    <div class="add-cart"><button>Ajouter</button></div>
+            </div>
+        </div>
+    </section>
+
+    <!--RESERVATION-->
+    <section class="reservation" id="reservation">
+        <div class="reservation-header">
+            <h2>Réservez Votre Table</h2>
+            <p>Garantissez votre place pour une expérience inoubliable</p>
+        </div>
+        <!--FORMULAIRE-->
+        <div class="reservation-container">
+            <form id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Noms</label>
+                        <input type="text" placeholder="Votre nom Complet" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" placeholder="+237 6XX XX XX XX" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Personnes</label>
+                        <input type="number" placeholder="Nombre de Personnes"  min="1" max="15" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                    <label>Heure</label>
+                    <input type="time" required>
+                </div>
+                <div class="form-group">
+                    <label>Commentaires</label>
+                    <textarea rows="2" placeholder="Demandes spéciales(optionnel)"></textarea>
+                </div>
+                </div>
+                <button type="submit" class="reserve-btn">Réserver maintenant</button>
+            </form>
+        </div>
+    </section>
+
+    <!--SECTION LOCALISATION-->
+    <section class="localisation" id="contact">
+        <div class="local-header">
+            <h2>Où nous trouver</h2>
+            <p>Venez nous rendre visite au coeur de Douala</p>
+        </div>
+        <div class="local">
+            <!--INFOS-->
+            <div class="local-content">
+                <div class="local-title">
+                    <img src="image/icône/adresse.png" alt="adresse du restaurant" width="25" height="25">
+                        <div class="local-text">
+                            <h3>Adresse</h3>
+                            <p>Rue des palmiers, Bonamoussadi<br>Douala,Cameroun</p>
+                        </div>
+                </div>
+                <div class="local-title">
+                    <img src="image/icône/telephone.png" alt="telephone du restaurant" width="25" height="25">
+                        <div class="local-text">
+                            <h3>Téléphone</h3>
+                            <p>+237 656 63 26 30<br>+237 698 88 88 00</p>
+                        </div>
+                </div>
+                <div class="local-title">
+                    <img src="image/icône/email.png" alt="email du restaurant" width="25" height="25">
+                        <div class="local-text">
+                            <h3>Email</h3>
+                            <p>contact@saveursdumboa.cm</p>
+                        </div>
+                </div>
+                <div class="local-title">
+                    <img src="image/icône/horaire.png" alt="Horaires de Service" width="25" height="25">
+                        <div class="local-text">
+                            <h3>Horaires</h3>
+                            <p>Lun - Dim: 11h00 - 23h00 <br>Service continu</p>
+                        </div>
+                </div>
+            </div>
+            <!--MAP-->
+            <div class="local-map">
+                <p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10294.795730769745!2d9.743912620960717!3d4.09159430444004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2scm!4v1772731260782!5m2!1sfr!2scm"
+                width="500" 
+                height="450" 
+                style="border-radius: 20px; ;" 
+                style="border: 0;"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION TEMOIGNAGES-->
+    <section class="testimonials">
+        <div class="test-header">
+            <h2>Ce Que Disent Nos Clients</h2>
+            <p>Des avis authentiques de nos clients satisfaits </p>
+        </div>
+        <div class="test-content">
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★★</font></div>
+                <div class="test-card-text">
+                    <p>"Une experience culinaire exceptionnelle! Le Ndolé est exactement comme celui de ma gand-mère. authentique et délicieux."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Marie KOUAM, Bonapriso</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★</font><font color="grey" size="5px">★</font></div>
+                <div class="test-card-text">
+                    <p>"Les plats sont delicieux, mais il y avait un peu d'attente. Heureusement que ça en valait la peine."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Armand BISSA, Deido</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★★</font></div>
+                <div class="test-card-text">
+                    <p>"Très bon restaurant, les portions sont généreuses et les plats sont parfaitement assaisonnés."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Stéphane KITIO, Bonamoussadi</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★</font><font color="grey" size="5px">★</font></div>
+                <div class="test-card-text">
+                    <p>"Très bon goût, surtout l'Eru. J'aurais juste aimé que la livraison soit un peu plus rapide."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Martin KAMLEU, PK17</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★★</font></div>
+                <div class="test-card-text">
+                    <p>"Enfin un restaurant qui honore vraiment nos traditions culinaire avec élégance. Servivce impeccable."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Jean Paul NKODO, Akwa</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="test-card">
+                <div class="test-card-star"><font color="yellow" size="5px">★★★★★</font></div>
+                <div class="test-card-text">
+                    <p>"Les saveurs sont authentiques et le cadre magnifique. Un vrai voyage gastronomique au Cameroun."<br>
+                        <!--AUTEUR-->
+                        <div class="test-autor">
+                            <span>-Pierre MBIDA, Denver</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION FOOTER-->
+    <section class="footer">
+        <div class="foot-1">
+            <div class="foot-1-header">
+                <h2>Saveurs du MBOA🇨🇲</h2>
+            </div>
+            <div class="foot-1-content">
+                L'Authenticité Camerounaise au coeur de Douala.<br>Une expérience culinaire unique qui célèbre<br>nos traditions.
+            </div>
+            <div class="foot-1-icon">
+                <a href="#"><img src="image/icône/facebook.png" alt="Logo de Facebook" width="50" height="50"></a>
+                <a href="#"><img src="image/icône/instagram.png" alt="Logo d'instragram" width="50" height="50"></a>
+                <a href="#"><img src="image/icône/twitter.png" alt="Logo de twitter" width="50" height="50"></a>
+            </div>
+        </div>
+        <div class="foot-2">
+            <div class="foot-2-header">
+                <h3>Navigation</h3>
+            </div>
+            <div class="foot-2-content">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="commande.html">Commander</a></li>
+                    <li><a href="#livraison">Livraison</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-3">
+            <div class="foot-3-header">
+                <h3>Contact</h3>
+            </div>
+            <div class="foot-3-content">
+                <div class="foot-3-local">
+                    <img src="image/icône/adresse.png" alt="" width="15" height="15">
+                    <div class="foot-3-text">
+                        Rue des Palemiers, Bonamoussadi <br>Douala, Cameroun
+                    </div>
+                </div>
+                <div class="foot-3-local">
+                    <img src="image/icône/telephone.png" alt="" width="15" height="15">
+                    <div class="foot-3-text">
+                        +237 6 56 63 26 30
+                    </div>
+                </div>
+                <div class="foot-3-local">
+                    <img src="image/icône/email.png" alt="" width="15" height="15">
+                    <div class="foot-3-text">
+                        contact@saveursdafrique.cm
+                    </div>
+                </div>
+                <div class="foot-3-local">
+                    <img src="image/icône/horaire.png" alt="" width="15" height="15">
+                    <div class="foot-3-text">
+                        Lun - Dim: 11h00 - 23h00 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+        <div class="foot-end">
+            <img src="image/icône/copyright.png" alt="" width="10" height="10"> 2026 Saveurs du MBOA🇨🇲. Tous droits réservés.
+        </div>
+</body>
+</html>

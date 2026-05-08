@@ -1,0 +1,187 @@
+li{
+    display: inline;
+    padding: 5px;
+    margin:5px;
+}
+.section11{
+    height: 100vh;
+    background: url("./image/Central\ African\ Restaurant\ Interior_\ Vibrant\ Cultural\ Heritage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+.h1{
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    color: white;
+}
+.h11{
+    font-size: 60px;
+    text-align: center;
+}
+.h12{
+    font-size: 60px;
+    color:rgb(255, 213, 0) ;
+    position: absolute;
+    top: 45%;
+    margin: 30px 10px;
+    text-align: center;
+    left: 20%;
+}
+a:hover{
+    color:rgb(255, 213, 0) ;
+}
+.titre{
+    position: absolute;
+    left: 5%;
+    top: 1%;
+    font-size: 25px;
+    color: rgb(255, 213, 0);
+}
+ul{
+    text-align: right;
+    top: 2px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+nav{
+    background-color:rgb(177,100,52);
+    height: 50px;
+    padding: 1px;
+}
+
+
+
+/*pour animation bounce chef dans about*/
+.about-image img{
+    animation: bounce 2s infinite;
+}
+@keyframes bounce{
+    0%, 100% { transform: translate(-50%, 0)}
+    50%{transform: translate(-50%, 10px);}
+}
+
+
+/*BUTTONS*/
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+.btn{
+    padding: 14px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.primary{
+    background-color: #d4af37;
+    color: white;
+}
+.primary:hover{
+    background-color: #b8296f;
+}
+.outline{
+    border: 2px solid #d4af37;
+    color: #d4af37;
+}
+
+
+
+/*SECTION ABOUT*/
+.about{
+    background-color: #f4e7d3;
+    padding: 100px 80px;
+}
+.about-container{
+    display: flex;
+    align-items:normal;
+    gap: 60px;
+}
+/*TEXTE*/
+.about-text{
+    flex: 1;
+}
+.about-text h2{
+    font-family: 'Playfairr Display' serif;
+    font-size: 60px;
+    color: #3b2a1e;
+    margin-bottom: 35px;
+}
+.about-text p{
+    color: #5c4a3d;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+.about-btn{
+    display: inline;
+    padding: 14px 30px;
+    background-color: #c17a3f;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.about-btn:hover{
+    background-color: #a96530;
+}
+/*IMAGE*/
+.about-image img{
+    width: 50%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+
+/* SECTION LOCALISATION*/
+.localisation{
+    background-color: #e0dbd3;
+    padding: 80px 30px;
+    color: #302c2c;
+}
+.local-header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.local-header h2{
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-family: 'Plairfair Display', serif;
+}
+.local-header p{
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+.local{
+    display: flex;
+    gap: 300px;
+}
+.local-content {
+    margin-left: 80px;
+    display: block;
+}
+.local-title{
+    margin-bottom: 25px;
+    font-size: large;
+}
+.local-title h3{
+    color: #a86b2d;
+    font-style: italic;
+    font-weight: bolder;
+    margin: 5px;
+    text-align: justify;
+}
+.local-title p{
+    color: dimgrey;
+    font-size: larger;
+    padding-bottom: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.local-map{
+    border-radius: 12px;
+}

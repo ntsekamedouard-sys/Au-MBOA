@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraison - Au MBOA🇨🇲</title>
+    <link rel="stylesheet" href="livraison.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo"><img src="image/ChatGPT Image 1 mars 2026, 22_07_41.png"
+                alt="Saveurs du MBOA🇨🇲" 
+                width="8%" 
+                height="25%" 
+                style="border-radius: 20px; ;">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="AU MBOA🇨🇲.html">Accueil</a></li>
+        <li><a href="AU MBOA🇨🇲.html#menu">Menu</a></li>
+        <li><a href="commande.html">Commande</a></li>
+        <li><a href="AU MBOA🇨🇲.html#reservation">Réservation</a></li>
+    </ul>
+</nav>
+
+<section class="delivery-container">
+
+    <!-- TITRE -->
+    <div class="liv-header">
+        <h1>Informations de Livraison</h1>
+        <p>Complétez vos informations pour finaliser votre commande</p>
+    </div>
+
+    <!-- CONTENU -->
+    <div class="liv-content">
+
+        <!-- GAUCHE -->
+        <div class="liv-left">
+            <form>
+
+                <!-- INFOS -->
+                <div class="liv-container">
+                    <div class="liv-container-header">
+                        <img src="image/icône/profil__2.png">
+                        <h2>Informations personnelles</h2>
+                    </div>
+
+                    <label>Nom complet</label>
+                    <input type="text" placeholder="Jean Dupont" required>
+
+                    <label>Numéro de téléphone</label>
+                    <input type="tel" placeholder="+237 6XX XX XX XX" required>
+                </div>
+
+                <!-- ADRESSE -->
+                <div class="liv-container">
+                    <div class="liv-container-header">
+                        <img src="image/icône/adresse.png">
+                        <h2>Adresse de livraison</h2>
+                    </div>
+
+                    <label>Adresse complète</label>
+                    <input type="text" placeholder="123 Rue des Palmiers" required>
+
+                    <label>Quartier</label>
+                    <input list="quartiers" placeholder="Sélectionnez un quartier" required>
+                    <datalist id="quartiers">
+                        <option value="Akwa">
+                        <option value="Bonapriso">
+                        <option value="Bonamoussadi">
+                        <option value="Deido">
+                        <option value="Makepe">
+                        <option value="Logpom">
+                        <option value="Kotto">
+                        <option value="PK8">
+                        <option value="PK10">
+                        <option value="PK11">
+                        <option value="PK12">
+                        <option value="Bali">
+                        <option value="New Bell">
+                        <option value="Bépanda">
+                        <option value="Bonangang">
+                        <option value="Cité SIC">
+                        <option value="Ndogpassi">
+                        <option value="Ndogbong">
+                        <option value="Yassa">
+                        <option value="Japoma">
+                        <option value="Bonaberi">
+                        <option value="Village">
+                        <option value="Ndokoti">
+                        <option value="Nylon">
+                        <option value="Dibombari">
+                        </option>
+                    </datalist>
+                </div>
+
+                <!-- PAIEMENT -->
+                <div class="liv-container">
+                    <div class="liv-container-header">
+                        <img src="image/icône/porte monnaie.png">
+                        <h2>Mode de paiement</h2>
+                    </div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paiement" >
+                        <div class="payment-card">
+                            <strong>Mobile Money</strong>
+                            <p>Orange Money, MTN MoMo</p>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paiement">
+                        <div class="payment-card">
+                            <strong>Paiement à la livraison</strong>
+                            <p>Payez en espèces au livreur</p>
+                        </div>
+                    </label>
+
+                </div>
+
+                <!-- BOUTONS -->
+                <div class="liv-buttons">
+                    <button type="button" class="btn-back" onclick="commande.html">Retour au panier</button>
+                    <button type="submit" class="btn-main">Confirmer la commande</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- DROITE -->
+        <div class="liv-right">
+
+            <h3>Résumé de la commande</h3>
+
+            <div class="line">
+                <span>Sous-total</span>
+                <span class="line-span">0 FCFA</span>
+            </div>
+
+            <div class="line">
+                <span>Frais de service</span>
+                <span class="line-span">500 FCFA</span>
+            </div>
+
+            <div class="total">
+                <span>Total</span>
+                <span class="total-span">500 FCFA</span>
+            </div>
+
+            <img src="image/icône/livreur.jpeg" class="liv-img">
+
+            <div class="delivery-time">
+                Livraison estimée : <strong>30-45 minutes</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

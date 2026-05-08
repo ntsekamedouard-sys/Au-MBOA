@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+          body{
+            background-color: rgb(235, 194, 134);
+            padding: 0px;
+            margin: 0px;
+        }
+  
+        form{
+            border-radius: 10px;
+            margin-top: 2%;
+            background-color: white;
+            height: 400px;
+            width:30% ;
+            margin-left: 35%;
+            padding-left: 3%;
+            padding-top: 2%;
+        }
+        .test{
+            width: 80% ;
+            height: 30px;
+            border-radius: 10px;
+            border-color: burlywood;
+        }
+        .plat{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 90%;
+        }
+         .but{
+            margin-top: 6%;
+            margin-left: 22%;
+            background-color: rgb(238, 162, 49);
+            border-radius: 10px;
+            margin-right: 20%;
+            height: 30px;
+             width: 45%;
+             
+         }
+         .bat{
+            margin-left: 44%;
+            margin-right: 28%;
+            background-color: rgb(238, 162, 49);
+            border-radius: 10px;
+            width: 15%;
+            height: 30px;
+         }
+         .but button{
+            text-decoration: none; 
+         }
+         a{
+            text-decoration: none;
+         }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form mini</title>
+</head>
+<body>
+    <h1 align="center">passer une commande</h1>
+    <p align="center">choisissez vos plats et renseignez vos informations</p>
+    <form action="#">
+    <div class="g">
+        <div class="formul">
+            <label>Nom complet:</label><br>
+            <input class="test" type="text" placeholder="votre nom complet" required><br><br>
+
+        </div>
+        <div class="formul">
+            <label>Telephone:</label><br>
+            <input class="test" type="tel" placeholder="+237xx xx xx xx" required><br><br>
+
+        </div>
+        <div class="plat">
+             <div class="formul">
+               <label>Plat:</label><br>
+               <select class="test">
+                 <option>ndole</option>
+                 <option>poulet dg</option>
+                 <option>eru</option>
+                 <option>eru</option>
+                 <option>poisson braise</option>
+               </select>
+              </div>
+             <div class="formul">
+               <label>Quantite:</label><br>
+               <input class="test" type="number" placeholder="1" required><br><br>
+             </div>
+        </div>
+       
+        <div class="formul">
+            <label>Adress:</label><br>
+            <textarea class="test" name="comentaire" id="t" placeholder="Votre adress"></textarea>
+         </div><br>
+         <div class="button">
+        <button class="but"><a href="mini suit.html">commander maintenant</a></button>
+        </div>
+    </div>
+  </form>
+  <br>
+   <a href="mini.html"> <button class="bat">retour</button></a>
+    
+</body>
+</html>

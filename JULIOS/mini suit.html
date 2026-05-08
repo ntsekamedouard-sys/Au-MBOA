@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(235, 194, 134);
+            padding: 0px;
+            margin: 0px;
+      
+        }
+       h1{
+        
+        text-align: center;
+        
+        }  
+        form{
+            margin-left: 28%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-color: #fff;
+            width: 40%;
+            height: 70%;
+            border-radius: 10px;
+            padding-left: 5%;
+            
+            
+        }
+        .align{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 95%;
+
+        }
+        .input{
+            border-color: burlywood;
+            border-radius: 10px;
+            width: 90%;
+            height: 25px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        button{
+          background-color: rgb(226, 141, 30);
+            text-align: center;
+            padding: 10px;
+            margin-left: 21%;
+            border-radius: 20px;
+            width: 40%;
+            height: 40px;
+        }
+        .buto{
+            width: 10%;
+        margin-right: 45%;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form mini</title>
+</head>
+<body>
+    <h1>informations de livraison</h1>
+    <p align="center" >renseignez vos coordonnees pour recevoir votre commande</p>
+    <form action="#">
+    <div class="g">
+        <div class="formul">
+            <label>Nom complet:</label>
+            <input class="input" type="text" placeholder="votre nom complet" required><br><br>
+
+        </div>
+        <div class="formul">
+            <label>Telephone:</label>
+            <input class="input" type="tel" placeholder="+237xx xx xx xx" required><br><br>
+
+        </div>
+        <div class="align">
+            <div class="plat">
+                <label>Plat:</label>
+                <select class="input">
+                    <option>ndole</option>
+                    <option>poulet dg</option>
+                    <option>eru</option>
+                    <option>eru</option>
+                    <option>poisson braise</option>
+                </select><br>
+            </div>
+            <div class="quantite">
+                <label>Quantite:</label>
+                <input class="input" type="number" placeholder="1" required min="1" max="20"><br><br>
+            </div>
+        </div>
+        <div class="formul">
+            <label>Adress de livreson:</label>
+            <input class="input" type="text" placeholder="quartier,rue,repere" required><br>
+
+        </div>
+        <div class="formul">
+            <label>Ville:</label><br>
+            <select name="v" class="input">
+                <option>douala</option>
+                <option>buea</option>
+                <option>bafoussam</option>
+                <option>yaounde</option>
+                <option>bertoua</option>
+            </select><br><br>
+
+        </div>
+        <div class="formul">
+            <label>instructions supplementaires:</label><br>
+            <textarea class="input" name="comentaire" id="t" placeholder="Descriptions exacte du lieu de livraison"></textarea>
+         </div><br>
+         <div class="button">
+         <a href=""><button>livraison</button></a>
+        </div>
+    </div>
+  </form>
+    <p align="right"><a href="mimi suit2.html"> <button class="buto">retour</button></a></p>
+    
+</body>
+</html>

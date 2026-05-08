@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>MCT - Gestion Hôtelière</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #1a1410;
+    color: #e8e0d4;
+    font-family: 'Crimson Pro', serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #6b5c45;
+    letter-spacing: 0.18em;
+  }
+  .header .scenario {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #9c8a72;
+  }
+
+  /* ── LAYOUT ── */
+  .mct {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── PHASE HEADER ── */
+  .phase {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .phase-line { flex: 1; height: 1px; background: #3a2e22; }
+  .phase-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    background: #241d14;
+    border: 1px solid #3d3020;
+    padding: 5px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── EVENT ── */
+  .event {
+    background: #221c12;
+    border: 1.5px solid #c9a96e;
+    border-radius: 40px;
+    padding: 9px 22px;
+    font-size: 0.85rem;
+    color: #e8d5b0;
+    text-align: center;
+    min-width: 210px;
+    box-shadow: 0 0 18px #c9a96e0a;
+    position: relative;
+  }
+  .event.result-ok { border-color: #6aaa64; color: #b8f0b0; background: #141e12; }
+  .event.result-ko { border-color: #d9534f; color: #f4b8b6; background: #1e1212; }
+  .event.result-neutral { border-color: #7bb3d9; color: #c2dff4; background: #121820; }
+
+  /* ── CONNECTOR ── */
+  .arrow {
+    width: 2px;
+    height: 26px;
+    background: #3a2e22;
+    position: relative;
+    margin: 0 auto;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #5a4a35;
+  }
+  .arrow.gold::after { border-top-color: #c9a96e; }
+  .arrow.green::after { border-top-color: #6aaa64; }
+  .arrow.blue::after { border-top-color: #7bb3d9; }
+
+  /* ── SYNC ── */
+  .sync-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+  }
+  .sync-hline { flex: 1; max-width: 110px; height: 2px; background: #3a2e22; }
+  .sync-box {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #f0c060;
+    background: #1a1410;
+    border: 2px solid #c9a96e;
+    border-radius: 5px;
+    padding: 4px 14px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── OPERATION ── */
+  .operation {
+    border: 2px solid #8b6a3a;
+    border-radius: 6px;
+    width: 340px;
+    background: linear-gradient(160deg, #1e180e 0%, #261f12 100%);
+    box-shadow: inset 0 1px 0 #c9a96e20, 0 4px 24px #00000060;
+    overflow: hidden;
+  }
+  .op-header {
+    background: #2e2210;
+    border-bottom: 1px solid #3d3020;
+    padding: 8px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: #c9a96e;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .op-body { padding: 14px 18px; }
+  .op-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #f0dfc0;
+    margin-bottom: 4px;
+  }
+  .op-desc {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #7a6a54;
+    line-height: 1.4;
+  }
+
+  /* ── EMISSION ── */
+  .emission {
+    border: 1.5px solid #6aaa64;
+    border-radius: 6px;
+    background: #111a10;
+    padding: 8px 20px;
+    text-align: center;
+    min-width: 240px;
+  }
+  .em-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    color: #4a8a44;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .em-rule {
+    font-size: 0.82rem;
+    color: #a0d498;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── RESULTS ROW ── */
+  .results-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .result-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── EVENTS ROW (multi triggers) ── */
+  .events-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .event-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    margin: 36px 0 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #3a2e22, transparent); }
+  .divider-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: #4a3c2a;
+    padding: 3px 10px;
+    border: 1px solid #2e2418;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    max-width: 900px;
+    margin: 44px auto 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 18px 24px;
+    background: #161009;
+    border: 1px solid #2e2418;
+    border-radius: 10px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: #7a6a54;
+  }
+  .leg-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MCT — Hôtel</h1>
+  <div class="sub">Merise · Modèle Conceptuel des Traitements</div>
+  <div class="scenario">Gestion des réservations, check-in et check-out</div>
+</div>
+
+<div class="mct">
+
+  <!-- ══════════════════════════════════════
+       PHASE 1 : RÉSERVATION
+  ══════════════════════════════════════ -->
+  <div class="phase">
+    <div class="phase-line"></div>
+    <div class="phase-badge">Phase 1 · Réservation</div>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="event">📞 Demande de réservation client</div>
+  <div class="arrow gold" style="height:26px"></div>
+
+  <div class="sync-wrap">
+    <div class="sync-box">TRIVIALE</div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="operation">
+    <div class="op-header">Opération 1</div>
+    <div class="op-body">
+      <div class="op-name">Vérification de disponibilité</div>
+      <div class="op-desc">Le réceptionniste consulte le planning des chambres pour les dates demandées</div>
+    </div>
+  </div>
+  <div class="arrow green" style="height:26px"></div>
+
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    <div class="em-rule">[Chambre libre] OU [Chambre occupée]</div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="results-row">
+    <div class="result-col">
+      <div class="event result-ko">❌ Client informé + inscrit en liste d'attente</div>
+    </div>
+    <div style="width: 20px"></div>
+    <div class="result-col">
+      <div class="event result-ok">✅ Réservation enregistrée + confirmation email</div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-num">Intervalle — Jour de l'arrivée</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 2 : CHECK-IN
+  ══════════════════════════════════════ -->
+  <div class="phase">
+    <div class="phase-line"></div>
+    <div class="phase-badge">Phase 2 · Check-in</div>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="events-row">
+    <div class="event-col">
+      <div class="event result-ok" style="min-width:190px; font-size:0.8rem;">✅ Client se présente à l'accueil</div>
+      <div class="arrow blue" style="height:28px"></div>
+    </div>
+    <div class="event-col">
+      <div class="event result-neutral" style="min-width:190px; font-size:0.8rem;">🔒 Confirmation email présentée</div>
+      <div class="arrow blue" style="height:28px"></div>
+    </div>
+  </div>
+
+  <div class="sync-wrap">
+    <div class="sync-hline"></div>
+    <div class="sync-box">ET</div>
+    <div class="sync-hline"></div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="operation">
+    <div class="op-header">Opération 2</div>
+    <div class="op-body">
+      <div class="op-name">Enregistrement & encaissement des arrhes</div>
+      <div class="op-desc">Vérification de la réservation, encaissement partiel, remise de la clé</div>
+    </div>
+  </div>
+  <div class="arrow green" style="height:26px"></div>
+
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    <div class="em-rule">[Arrhes perçues] → ET</div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="results-row">
+    <div class="result-col">
+      <div class="event result-neutral" style="min-width:155px; font-size:0.78rem;">🗝️ Clé de chambre remise au client</div>
+    </div>
+    <div class="result-col">
+      <div class="event result-neutral" style="min-width:155px; font-size:0.78rem;">📋 Fiche d'occupation envoyée au service d'étage</div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-num">Intervalle — Séjour du client</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 3 : CHECK-OUT
+  ══════════════════════════════════════ -->
+  <div class="phase">
+    <div class="phase-line"></div>
+    <div class="phase-badge">Phase 3 · Check-out</div>
+    <div class="phase-line"></div>
+  </div>
+
+  <div class="events-row">
+    <div class="event-col">
+      <div class="event" style="min-width:190px; font-size:0.8rem;">🗝️ Client restitue sa clé</div>
+      <div class="arrow gold" style="height:28px"></div>
+    </div>
+    <div class="event-col">
+      <div class="event result-neutral" style="min-width:190px; font-size:0.8rem;">📅 Date de départ atteinte</div>
+      <div class="arrow gold" style="height:28px"></div>
+    </div>
+  </div>
+
+  <div class="sync-wrap">
+    <div class="sync-hline"></div>
+    <div class="sync-box">ET</div>
+    <div class="sync-hline"></div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="operation">
+    <div class="op-header">Opération 3</div>
+    <div class="op-body">
+      <div class="op-name">Facturation & libération de chambre</div>
+      <div class="op-desc">Édition de la facture finale, encaissement du solde, envoi bon de libération</div>
+    </div>
+  </div>
+  <div class="arrow green" style="height:26px"></div>
+
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    <div class="em-rule">[Solde encaissé] → ET</div>
+  </div>
+  <div class="arrow" style="height:26px"></div>
+
+  <div class="results-row">
+    <div class="result-col">
+      <div class="event result-ok" style="min-width:155px; font-size:0.78rem;">🧾 Facture finale remise au client</div>
+    </div>
+    <div class="result-col">
+      <div class="event result-neutral" style="min-width:155px; font-size:0.78rem;">🧹 Bon de libération envoyé au service d'étage</div>
+    </div>
+    <div class="result-col">
+      <div class="event result-ok" style="min-width:155px; font-size:0.78rem;">🟢 Chambre remise disponible dans le système</div>
+    </div>
+  </div>
+
+</div><!-- /mct -->
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#c9a96e;"></div>
+    Événement déclencheur
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#8b6a3a; border-radius:2px; width:14px; height:10px;"></div>
+    Opération
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#f0c060; border-radius:3px; width:20px; height:10px;"></div>
+    Synchronisation ET / OU
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#6aaa64; border-radius:3px; width:20px; height:10px;"></div>
+    Règle d'émission
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#6aaa64;"></div>
+    Résultat positif
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#d9534f;"></div>
+    Résultat négatif
+  </div>
+  <div class="legend-item">
+    <div class="leg-dot" style="border-color:#7bb3d9;"></div>
+    Résultat neutre / document
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+Que fait ce code 
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>MCT - Vente en magasin</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0f1117;
+    color: #e8eaf0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7dd3fc;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #64748b;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .mct {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── EVENT ── */
+  .event {
+    background: #1e293b;
+    border: 2px solid #38bdf8;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #bae6fd;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 0 14px #38bdf820;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── SYNC ── */
+  .sync-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    margin: 0;
+  }
+  .sync-line {
+    height: 2px;
+    background: #38bdf840;
+    flex: 1;
+    max-width: 120px;
+  }
+  .sync-badge {
+    background: #0f172a;
+    border: 2px solid #f59e0b;
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fbbf24;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── OPERATION ── */
+  .operation {
+    background: linear-gradient(135deg, #1a2744 0%, #1e3a5f 100%);
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    padding: 14px 28px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px #3b82f615;
+    z-index: 2;
+  }
+  .operation .op-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #60a5fa;
+    margin-bottom: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .operation .op-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #e0f2fe;
+  }
+  .operation .op-desc {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  /* ── EMISSION RULE ── */
+  .emission {
+    background: #12201a;
+    border: 2px solid #22c55e;
+    border-radius: 6px;
+    padding: 7px 18px;
+    font-size: 0.74rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #86efac;
+    text-align: center;
+    min-width: 220px;
+  }
+  .emission .em-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #4ade80;
+    margin-bottom: 3px;
+  }
+
+  /* ── RESULTS ROW ── */
+  .results-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .result-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── CONNECTOR (arrow) ── */
+  .arrow {
+    width: 2px;
+    background: #334155;
+    height: 28px;
+    position: relative;
+    margin: 0 auto;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #475569;
+  }
+
+  .arrow-blue::after { border-top-color: #38bdf8; }
+  .arrow-green::after { border-top-color: #22c55e; }
+  .arrow-orange::after { border-top-color: #f59e0b; }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1e293b, transparent);
+    margin: 32px 0 28px;
+    position: relative;
+  }
+  .section-divider::after {
+    content: attr(data-num);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #0f1117;
+    color: #475569;
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 0 12px;
+  }
+
+  /* ── MULTI-EVENTS ROW ── */
+  .events-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .event-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    max-width: 860px;
+    margin: 40px auto 0;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: #0d1420;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+  .legend-swatch {
+    width: 24px;
+    height: 14px;
+    border-radius: 3px;
+    border: 2px solid;
+  }
+</style>
+</head>
+<body>
+
+<h1>Modèle Conceptuel des Traitements</h1>
+<div class="subtitle">Merise — Gestion des ventes en magasin</div>
+
+<div class="mct">
+
+  <!-- ══════════════════════════════════════════
+       OPÉRATION 1 : VÉRIFICATION DISPONIBILITÉ
+  ══════════════════════════════════════════ -->
+
+  <div class="event">📋 Demande d'achat d'un article</div>
+
+  <div class="arrow arrow-blue" style="height:24px"></div>
+
+  <div class="sync-row">
+    <div class="sync-badge">TRIVIALE</div>
+  </div>
+
+  <div class="arrow" style="height:24px"></div>
+
+  <div class="operation">
+    <div class="op-label">Opération 1</div>
+    <div class="op-name">Vérification de disponibilité</div>
+    <div class="op-desc">Le vendeur consulte le stock sur ordinateur</div>
+  </div>
+
+  <div class="arrow arrow-green" style="height:24px"></div>
+
+  <!-- Règle d'émission -->
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    [Article dispo] OU [Article non dispo]
+  </div>
+
+  <div style="height:24px; width:100%; position:relative">
+    <!-- Ligne horizontale -->
+    <svg width="100%" height="24" style="position:absolute;top:0;left:0;">
+      <line x1="30%" y1="0" x2="30%" y2="24" stroke="#334155" stroke-width="2"/>
+      <line x1="70%" y1="0" x2="70%" y2="24" stroke="#334155" stroke-width="2"/>
+      <line x1="30%" y1="0" x2="70%" y2="0" stroke="#334155" stroke-width="2"/>
+      <!-- arrowheads -->
+      <polygon points="30%,18 calc(30% - 5px),24 calc(30% + 5px),24" fill="#475569"/>
+    </svg>
+  </div>
+
+  <!-- Résultats Opération 1 -->
+  <div class="results-row">
+    <div class="result-col">
+      <div class="arrow arrow-orange" style="height:28px"></div>
+      <div class="event" style="border-color:#f59e0b; color:#fde68a; min-width:180px; font-size:0.78rem;">
+        ❌ Client informé de l'indisponibilité
+      </div>
+    </div>
+    <div style="width:60px"></div>
+    <div class="result-col">
+      <div class="arrow arrow-green" style="height:28px"></div>
+      <div class="event" style="border-color:#22c55e; color:#bbf7d0; min-width:180px; font-size:0.78rem;">
+        ✅ Bon de commande établi
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider" data-num="────────────────────────────────────────────────────────────"></div>
+
+  <!-- ══════════════════════════════════════════
+       OPÉRATION 2 : ENCAISSEMENT
+  ══════════════════════════════════════════ -->
+
+  <div class="event" style="border-color:#22c55e; color:#bbf7d0;">✅ Bon de commande présenté à la caisse</div>
+
+  <div class="arrow arrow-blue" style="height:24px"></div>
+
+  <div class="sync-row">
+    <div class="sync-badge">TRIVIALE</div>
+  </div>
+
+  <div class="arrow" style="height:24px"></div>
+
+  <div class="operation">
+    <div class="op-label">Opération 2</div>
+    <div class="op-name">Encaissement</div>
+    <div class="op-desc">La caissière perçoit le paiement et édite les documents</div>
+  </div>
+
+  <div class="arrow arrow-green" style="height:24px"></div>
+
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    [Paiement effectué] → ET
+  </div>
+
+  <div class="arrow" style="height:24px"></div>
+
+  <!-- Résultats Opération 2 -->
+  <div class="results-row">
+    <div class="result-col">
+      <div class="event" style="min-width:155px; font-size:0.76rem; border-color:#a78bfa; color:#ddd6fe;">🧾 Facture remise au client</div>
+    </div>
+    <div class="result-col">
+      <div class="event" style="min-width:155px; font-size:0.76rem; border-color:#a78bfa; color:#ddd6fe;">📄 Bon de sortie de stock remis</div>
+    </div>
+    <div class="result-col">
+      <div class="event" style="min-width:155px; font-size:0.76rem; border-color:#a78bfa; color:#ddd6fe;">📬 Double bon envoyé à l'entrepôt</div>
+    </div>
+  </div>
+
+  <div class="section-divider" data-num="────────────────────────────────────────────────────────────"></div>
+
+  <!-- ══════════════════════════════════════════
+       OPÉRATION 3 : REMISE DE L'ARTICLE
+  ══════════════════════════════════════════ -->
+
+  <div class="events-row">
+    <div class="event-col">
+      <div class="event" style="font-size:0.78rem; min-width:190px;">📄 Client au rayon retrait + bon de sortie</div>
+      <div class="arrow arrow-blue" style="height:28px"></div>
+    </div>
+    <div class="event-col">
+      <div class="event" style="font-size:0.78rem; min-width:190px;">📦 Article arrivé de l'entrepôt</div>
+      <div class="arrow arrow-blue" style="height:28px"></div>
+    </div>
+  </div>
+
+  <div class="sync-row">
+    <div class="sync-line"></div>
+    <div class="sync-badge">ET</div>
+    <div class="sync-line"></div>
+  </div>
+
+  <div class="arrow" style="height:24px"></div>
+
+  <div class="operation">
+    <div class="op-label">Opération 3</div>
+    <div class="op-name">Remise de l'article</div>
+    <div class="op-desc">L'employé tamponne le bon et remet l'article au client</div>
+  </div>
+
+  <div class="arrow arrow-green" style="height:24px"></div>
+
+  <div class="emission">
+    <div class="em-label">Règle d'émission</div>
+    [Article livré]
+  </div>
+
+  <div class="arrow arrow-green" style="height:24px"></div>
+
+  <div class="event" style="border-color:#22c55e; color:#bbf7d0;">
+    ✅ Article remis au client — Bon tamponné « Article livré »
+  </div>
+
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="border-color:#38bdf8; background:#1e293b;"></div>
+    Événement déclencheur
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="border-color:#3b82f6; background:#1a2744;"></div>
+    Opération (traitement)
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="border-color:#f59e0b; background:#12100a;"></div>
+    Synchronisation ET / OU
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="border-color:#22c55e; background:#12201a;"></div>
+    Règle d'émission / Résultat
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="border-color:#a78bfa; background:#1a1430;"></div>
+    Résultats multiples (ET)
+  </div>
+</div>
+
+</body>
+</html>
