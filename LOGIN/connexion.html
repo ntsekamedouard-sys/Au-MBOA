@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Au MBOA 🇨🇲</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="connexion.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="../AU MBOA🇨🇲.html">
+            <img src="../image/ChatGPT Image 1 mars 2026, 22_07_41.png"
+                 alt="Au MBOA 🇨🇲"
+                 width="50" height="50"
+                 style="border-radius: 12px;">
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="../AU MBOA🇨🇲.html">Accueil</a></li>
+        <li><a href="../AU MBOA🇨🇲.html#menu">Menu</a></li>
+        <li><a href="../commande.html">Commander</a></li>
+    </ul>
+</nav>
+
+<!-- FOND DÉCORATIF -->
+<div class="auth-bg">
+    <div class="auth-bg-circle circle-1"></div>
+    <div class="auth-bg-circle circle-2"></div>
+    <div class="auth-bg-circle circle-3"></div>
+</div>
+
+<!-- CONTENU PRINCIPAL -->
+<main class="auth-container">
+
+    <!-- ILLUSTRATION -->
+    <div class="auth-visual">
+        <div class="auth-visual-inner">
+            <div class="auth-flag">🇨🇲</div>
+            <h1 class="auth-tagline">L'Authenticité<br><span>Camerounaise</span></h1>
+            <p>Connectez-vous pour commander vos plats traditionnels préférés et suivre vos livraisons.</p>
+            <div class="auth-features">
+                <div class="auth-feature">🍲 Commandes rapides</div>
+                <div class="auth-feature">📍 Suivi en temps réel</div>
+                <div class="auth-feature">❤️ Favoris sauvegardés</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div class="auth-form-wrapper">
+        <div class="auth-card">
+
+            <div class="auth-card-header">
+                <h2>Bon retour !</h2>
+                <p>Connectez-vous à votre compte</p>
+            </div>
+
+            <form id="form-connexion" novalidate>
+
+                <!-- EMAIL -->
+                <div class="field-group">
+                    <label for="email-connexion">Adresse email</label>
+                    <div class="field-input-wrapper">
+                        <span class="field-icon">✉️</span>
+                        <input type="email"
+                               id="email-connexion"
+                               name="email"
+                               placeholder="votre@email.cm"
+                               autocomplete="email"
+                               required
+                               aria-required="true">
+                    </div>
+                </div>
+
+                <!-- MOT DE PASSE -->
+                <div class="field-group">
+                    <label for="mdp-connexion">Mot de passe</label>
+                    <div class="field-input-wrapper">
+                        <span class="field-icon">🔒</span>
+                        <input type="password"
+                               id="mdp-connexion"
+                               name="mdp"
+                               placeholder="Votre mot de passe"
+                               autocomplete="current-password"
+                               required
+                               aria-required="true">
+                        <button type="button" class="toggle-password" aria-label="Afficher le mot de passe">👁</button>
+                    </div>
+                </div>
+
+                <!-- OPTIONS -->
+                <div class="field-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span class="checkbox-custom"></span>
+                        Se souvenir de moi
+                    </label>
+                    <a href="#" class="link-mdp-oublie">Mot de passe oublié ?</a>
+                </div>
+
+                <!-- BOUTON -->
+                <button type="submit" class="btn-auth">
+                    Se connecter
+                    <span class="btn-arrow">→</span>
+                </button>
+
+                <!-- SÉPARATEUR -->
+                <div class="auth-separator">
+                    <span>ou</span>
+                </div>
+
+                <!-- DÉMO -->
+                <button type="button" class="btn-demo" onclick="demoConnexion()">
+                    🎮 Connexion démo (test)
+                </button>
+
+            </form>
+
+            <div class="auth-card-footer">
+                Pas encore de compte ?
+                <a href="inscription.html">Créer un compte →</a>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- Notifications injectées par JS -->
+<div id="toast-container"></div>
+
+<script src="../AU MBOA🇨🇲.js"></script>
+<script>
+    // Démo rapide sans inscription préalable
+    function demoConnexion() {
+        const demoUser = { email: 'demo@aumboa.cm', prenom: 'Demo', nom: 'MBOA', role: 'client' };
+        localStorage.setItem('aumboa_utilisateur', JSON.stringify(demoUser));
+        showToast('Connexion démo réussie ! 🎉', 'success');
+        setTimeout(() => window.location.href = '../AU MBOA🇨🇲.html', 1200);
+    }
+</script>
+
+</body>
+</html>

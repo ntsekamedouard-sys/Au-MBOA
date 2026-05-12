@@ -1,0 +1,113 @@
+/* ============================================================
+   INSCRIPTION.CSS — Au MBOA 🇨🇲
+   Étend connexion.css avec les styles propres à l'inscription
+   ============================================================ */
+
+/* Inversion du layout : formulaire à gauche, visuel à droite */
+.inscription-layout {
+    flex-direction: row-reverse;
+}
+
+/* Carte inscription légèrement plus large */
+.inscription-card {
+    max-width: 500px !important;
+}
+
+/* Visual droite — couleur complémentaire */
+.inscription-visual {
+    background: linear-gradient(135deg, #3b2510, #1a0f05) !important;
+}
+
+/* Ligne double — deux champs côte à côte */
+.form-row-double {
+    display: flex;
+    gap: 16px;
+}
+.form-row-double .field-group {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Mention obligatoire */
+.required {
+    color: #d4af37;
+    font-weight: 700;
+}
+
+/* Hint sous le champ */
+.field-hint {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+    margin-left: 2px;
+}
+
+/* CGU */
+.cgu-group {
+    margin-bottom: 25px;
+}
+.cgu-group .checkbox-label {
+    font-size: 13px;
+}
+.link-cgu {
+    color: #d4af37;
+    text-decoration: none;
+}
+.link-cgu:hover { text-decoration: underline; }
+
+/* Avantages inscription */
+.inscription-avantages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+.avantage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px 18px;
+    border-radius: 14px;
+    transition: background 0.3s;
+}
+.avantage-item:hover {
+    background: rgba(255,255,255,0.12);
+}
+.avantage-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+.avantage-item strong {
+    display: block;
+    color: #d4af37;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+.avantage-item p {
+    color: rgba(255,255,255,0.6) !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .inscription-layout {
+        flex-direction: column;
+    }
+    .form-row-double {
+        flex-direction: column;
+        gap: 0;
+    }
+    .inscription-avantages {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .avantage-item {
+        flex: 1;
+        min-width: 200px;
+    }
+}
