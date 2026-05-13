@@ -13,12 +13,12 @@
 // ============================================================
 
 const STORAGE_KEYS = {
-  panier: 'aumboa_panier',
-  utilisateur: 'aumboa_utilisateur',
-  theme: 'aumboa_theme',
-  reservations: 'aumboa_reservations',
-  commandes: 'aumboa_commandes',
-  favoris: 'aumboa_favoris',
+    utilisateur: 'aumboa_utilisateur',
+    panier: 'aumboa_panier',
+    reservations: 'aumboa_reservations',
+    commandes: 'aumboa_commandes',
+    favoris: 'aumboa_favoris',
+    theme: 'aumboa_theme',
 };
 
 const FRAIS_SERVICE = 500;
@@ -32,8 +32,8 @@ const $ = (selector, context = document) => context.querySelector(selector);
 const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
 
 const storage = {
-  get: (key) => { try { return JSON.parse(localStorage.getItem(key)) || null; } catch { return null; } },
-  set: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) { console.warn('Storage error:', e); } },
+    set: (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) { console.warn('Storage error:', e); } },
+    get: (key) => { try { return JSON.parse(localStorage.getItem(key)) || null; } catch { return null; } },
   remove: (key) => localStorage.removeItem(key),
 };
 
@@ -46,8 +46,8 @@ const validerTelephoneCM = (tel) => /^(\+237|237)?[62][0-9]{8}$/.test(tel.replac
 const validerEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const debounce = (fn, delay = 300) => {
-  let timer;
-  return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); };
+    let timer;
+    return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); };
 };
 
 // ============================================================
@@ -55,23 +55,23 @@ const debounce = (fn, delay = 300) => {
 // ============================================================
 
 function initLoader() {
-  const loader = document.createElement('div');
-  loader.id = 'aumboa-loader';
-  loader.innerHTML = `
+    const loader = document.createElement('div');
+    loader.id = 'aumboa-loader';
+    loader.innerHTML = `
     <div class="loader-inner">
-      <div class="loader-logo">🇨🇲</div>
-      <div class="loader-text">Au MBOA</div>
-      <div class="loader-bar"><div class="loader-progress"></div></div>
+        <div class="loader-logo"><img src="image/ChatGPT Image 1 mars 2026, 22_07_41.png" alt="Saveurs du MBOA🇨🇲" width="15%" height="35%" style="border-radius: 20px; ;"></div>
+        <div class="loader-text">Au MBOA🇨🇲</div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
     </div>
-  `;
-  document.body.prepend(loader);
+    `;
+    document.body.prepend(loader);
 
-  window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
     setTimeout(() => {
-      loader.classList.add('loader-hide');
-      setTimeout(() => loader.remove(), 600);
+        loader.classList.add('loader-hide');
+        setTimeout(() => loader.remove(), 600);
     }, 800);
-  });
+    });
 }
 
 // ============================================================

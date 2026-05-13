@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commande - Au MBOA</title>
+    <title>Commande - Au MBOA 🇨🇲</title>
     <link rel="stylesheet" href="commande.css">
 </head>
 <body>
+
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo"><img src="image/ChatGPT Image 1 mars 2026, 22_07_41.png"
-                alt="Saveurs du MBOA🇨🇲" 
-                width="15%" 
-                height="35%" 
-                style="border-radius: 20px; ;">
+    <div class="logo">
+        <img src="image/ChatGPT Image 1 mars 2026, 22_07_41.png"
+            alt="Saveurs du MBOA🇨🇲"
+            width="15%" height="35%"
+            style="border-radius: 20px;">
     </div>
-        <ul class="nav-links">
-            <li><a href="AU MBOA🇨🇲.html">Accueil</a></li>
-                <li><a href="AU MBOA🇨🇲.html#menu">Menu</a></li>
-                <li><a href="livraison.html">Livraison</a></li>
-                <li><a href="AU MBOA🇨🇲.html#reservation">Réservation</a></li>
-        </ul>
+    <ul class="nav-links">
+        <li><a href="AU MBOA🇨🇲.html">Accueil</a></li>
+        <li><a href="AU MBOA🇨🇲.html#menu">Menu</a></li>
+        <li><a href="livraison.html">Livraison</a></li>
+        <li><a href="AU MBOA🇨🇲.html#reservation">Réservation</a></li>
+    </ul>
 </nav>
+
 <section class="cart-container">
 
     <!-- TITRE -->
@@ -31,118 +33,48 @@
 
     <div class="cart-content">
 
-        <!-- LISTE PRODUITS -->
-        <div class="cart-items">
-
-            <!-- ITEM -->
-            <div class="cart-item">
-                <img src="image/img3.jpg">
-
-                <div class="details">
-                    <h3>Ndolé</h3>
-                    <p>Plats traditionnels</p>
-                    <span>3500 FCFA</span>
-                </div>
-
-                <div class="actions">
-                    <button class="delete">🗑</button>
-
-                    <div class="qty">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM -->
-            <div class="cart-item">
-                <img src="image/img6.jpg">
-
-                <div class="details">
-                    <h3>Poulet DG</h3>
-                    <p>Grillades</p>
-                    <span>9000 FCFA</span>
-                </div>
-
-                <div class="actions">
-                    <button class="delete">🗑</button>
-
-                    <div class="qty">
-                        <button>-</button>
-                        <span>2</span>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ITEM -->
-            <div class="cart-item" >
-                <img src="image/img3.jpg">
-
-                <div class="details">
-                    <h3>Ndolé</h3>
-                    <p>Plats traditionnels</p>
-                    <span>3500 FCFA</span>
-                </div>
-
-                <div class="actions">
-                    <button class="delete">🗑</button>
-
-                    <div class="qty">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
-            <!-- ITEM -->
-            <div class="cart-item">
-                <img src="image/img6.jpg">
-
-                <div class="details">
-                    <h3>Poulet DG</h3>
-                    <p>Grillades</p>
-                    <span>9000 FCFA</span>
-                </div>
-
-                <div class="actions">
-                    <button class="delete">🗑</button>
-
-                    <div class="qty">
-                        <button>-</button>
-                        <span>2</span>
-                        <button>+</button>
-                    </div>
-                </div>
-            </div>
+        <!-- ═══════════════════════════════════════════════
+            ZONE ARTICLES — entièrement remplie par panier.js
+            Ne jamais mettre d'items en dur ici
+        ════════════════════════════════════════════════ -->
+        <div class="cart-items" id="cart-items-zone">
+            <!-- panier.js injecte ici les articles ou l'état vide -->
         </div>
 
-        <!-- RÉSUMÉ -->
-        <div class="cart-summary">
+        <!-- ═══════════════════════════════════════════════
+            RÉSUMÉ — les valeurs sont mises à jour par panier.js
+        ════════════════════════════════════════════════ -->
+        <div class="cart-summary" id="cart-summary-zone">
 
             <h2><u>Résumé de la commande</u></h2>
 
             <div class="line">
                 <span class="line-1">Sous-total</span>
-                <span>25 000 FCFA</span>
+                <span id="resume-sous-total">0 FCFA</span>
             </div>
 
             <div class="line">
                 <span class="line-1">Frais de service</span>
-                <span>1 000 FCFA</span>
+                <span id="resume-frais">500 FCFA</span>
             </div>
 
             <div class="total">
                 <span class="line-1">Total</span>
-                <span class="total-number">26 000 FCFA</span>
+                <span class="total-number" id="resume-total">500 FCFA</span>
             </div>
 
-            <a href="livraison.html"><button class="btn-main">Passer la commande →</button></a>
-            <a href="AU MBOA🇨🇲.html#menu"><button class="btn-secondary">Continuer mes achats</button></a>
+            <!-- Désactivé par défaut, panier.js l'active si panier non vide -->
+            <button class="btn-main" id="btn-passer-commande" disabled>
+                Passer la commande →
+            </button>
+
+            <a href="AU MBOA🇨🇲.html#menu">
+                <button class="btn-secondary">Continuer mes achats</button>
+            </a>
+
             <br><br><hr><br><br>
 
-            <div class="cart-free">
+            <div class="cart-free" id="cart-free-msg">
                 <p>Livraison gratuite à partir de 10 000 FCFA</p>
             </div>
         </div>
@@ -150,65 +82,63 @@
     </div>
 
 </section>
-    <!--SECTION FOOTER-->
+
+<!-- FOOTER -->
 <section class="footer">
-        <div class="foot-1">
-            <div class="foot-1-header">
-                <h2>Saveurs du MBOA🇨🇲</h2>
+    <div class="foot-1">
+        <div class="foot-1-header"><h2>Saveurs du MBOA🇨🇲</h2></div>
+        <div class="foot-1-content">
+            L'Authenticité Camerounaise au coeur de Douala.<br>
+            Une expérience culinaire unique qui célèbre<br>nos traditions.
+        </div>
+        <div class="foot-1-icon">
+            <a href="#"><img src="image/icône/facebook.png" alt="Facebook" width="50" height="50"></a>
+            <a href="#"><img src="image/icône/instagram.png" alt="Instagram" width="50" height="50"></a>
+            <a href="#"><img src="image/icône/twitter.png" alt="Twitter" width="50" height="50"></a>
+        </div>
+    </div>
+    <div class="foot-2">
+        <div class="foot-2-header"><h3>Navigation</h3></div>
+        <div class="foot-2-content">
+            <ul>
+                <li><a href="AU MBOA🇨🇲.html#accueil">Accueil</a></li>
+                <li><a href="AU MBOA🇨🇲.html#menu">Menu</a></li>
+                <li><a href="livraison.html">Livraison</a></li>
+                <li><a href="AU MBOA🇨🇲.html#apropos">À propos</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="foot-3">
+        <div class="foot-3-header"><h3>Contact</h3></div>
+        <div class="foot-3-content">
+            <div class="foot-3-local">
+                <img src="image/icône/adresse.png" alt="" width="15" height="15">
+                <div class="foot-3-text">Rue des Palmiers, Bonamoussadi<br>Douala, Cameroun</div>
             </div>
-            <div class="foot-1-content">
-                L'Authenticité Camerounaise au coeur de Douala.<br>Une expérience culinaire unique qui célèbre<br>nos traditions.
+            <div class="foot-3-local">
+                <img src="image/icône/telephone.png" alt="" width="15" height="15">
+                <div class="foot-3-text">+237 6 56 63 26 30</div>
             </div>
-            <div class="foot-1-icon">
-                <a href="#"><img src="image/icône/facebook.png" alt="Logo de Facebook" width="50" height="50"></a>
-                <a href="#"><img src="image/icône/instagram.png" alt="Logo d'instragram" width="50" height="50"></a>
-                <a href="#"><img src="image/icône/twitter.png" alt="Logo de twitter" width="50" height="50"></a>
+            <div class="foot-3-local">
+                <img src="image/icône/email.png" alt="" width="15" height="15">
+                <div class="foot-3-text">contact@aumboa.cm</div>
+            </div>
+            <div class="foot-3-local">
+                <img src="image/icône/horaire.png" alt="" width="15" height="15">
+                <div class="foot-3-text">Lun - Dim : 11h00 - 23h00</div>
             </div>
         </div>
-        <div class="foot-2">
-            <div class="foot-2-header">
-                <h3>Navigation</h3>
-            </div>
-            <div class="foot-2-content">
-                <ul>
-                    <li><a href="AU MBOA🇨🇲.html#accueil">Accueil</a></li>
-                    <li><a href="AU MBOA🇨🇲.html#menu">Menu</a></li>
-                    <li><a href="livraison.html">Livraison</a></li>
-                    <li><a href="AU MBOA🇨🇲.html#apropos">À propos</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="foot-3">
-            <div class="foot-3-header">
-                <h3>Contact</h3>
-            </div>
-            <div class="foot-3-content">
-                <div class="foot-3-local">
-                    <img src="image/icône/adresse.png" alt="" width="15" height="15">
-                    <div class="foot-3-text">
-                        Rue des Palemiers, Bonamoussadi <br>Douala, Cameroun
-                    </div>
-                </div>
-                <div class="foot-3-local">
-                    <img src="image/icône/telephone.png" alt="" width="15" height="15">
-                    <div class="foot-3-text">
-                        +237 6 56 63 26 30
-                    </div>
-                </div>
-                <div class="foot-3-local">
-                    <img src="image/icône/email.png" alt="" width="15" height="15">
-                    <div class="foot-3-text">
-                        contact@saveursdafrique.cm
-                    </div>
-                </div>
-                <div class="foot-3-local">
-                    <img src="image/icône/horaire.png" alt="" width="15" height="15">
-                    <div class="foot-3-text">
-                        Lun - Dim: 11h00 - 23h00 
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 </section>
+
+<!-- Notifications toast -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- Popup commande (contenu injecté par panier.js) -->
+<div id="popup-overlay" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true"></div>
+
+<!-- SCRIPT UNIQUE : panier.js gère tout sur cette page -->
+<script src="panier.js"></script>
+
 </body>
 </html>
